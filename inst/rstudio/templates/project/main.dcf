@@ -1,0 +1,8 @@
+Binding: main
+Title: Standardised Structured Project Templates
+OpenFiles: README.md
+
+Parameter: project_type
+Widget: SelectInput
+Label: Project Type
+Fields: standard_project, kaggle_competition
