@@ -22,7 +22,7 @@ kaggle_competition <- function(path) {
                                      recursive = TRUE))
 
   # Create Data subfolders
-  purrr::walk(c("External", "Interim", "Processed", "Raw", "Test"),
+  purrr::walk(c("External", "Interim", "Processed", "Raw"),
               function(x) dir.create(paste(path,"Data", x, sep = "/"),
                                      showWarnings = FALSE,
                                      recursive = TRUE))
@@ -33,11 +33,13 @@ kaggle_competition <- function(path) {
                                      recursive = TRUE))
 
   # .here file for pyhere
-  file.create(".here", showWarnings = FALSE)
+  file.create(paste(path,".here", sep = "/"), showWarnings = FALSE)
 
   # README.md file template
   system.file("extdata", "README.md", package = "structuRs")
   file.copy(from = system.file("extdata", "README.md", package = "structuRs"),
             to = path,
             recursive = TRUE)
+
+  # TODO: Add data_documentation.md and project_dairy.md files
 }
